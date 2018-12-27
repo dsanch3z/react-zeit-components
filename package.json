@@ -1,6 +1,6 @@
 {
   "name": "react-zeit-components",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Zeit's design components to React",
   "private": false,
   "scripts": {
@@ -70,6 +70,7 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.10.0",
     "clean-webpack-plugin": "^1.0.0",
+    "fs-extra": "^7.0.1",
     "jest": "^23.6.0",
     "react": "^16.7.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
@@ -87,7 +88,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "fs-extra": "^7.0.1",
     "styled-components": "^4.1.3"
   }
 }

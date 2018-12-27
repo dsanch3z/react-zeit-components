@@ -1,23 +1,22 @@
 const path = require("path");
 const fs = require("fs-extra");
 
-// Take package.json and modify it's content to put into the dist folder
-const SRC = path.resolve(__dirname, "../package.json");
-const DEST = path.resolve(__dirname, "../dist/package.json");
+const SRC = path.resolve(__dirname, "../");
+const DEST = path.resolve(__dirname, "../dist/");
 
 async function run() {
-  const packageJSON = await fs.readJSON(SRC);
-
-  await fs.createFile(DEST);
+  // Take package.json, modify it's content and put it into the dist folder
+  const packageJSON = await fs.readJSON(`${SRC}/package.json`);
+  await fs.createFile(`${DEST}/package.json`);
   await fs.writeJSON(
-    DEST,
-    {
-      ...packageJSON,
-      main: "./index.js",
-      private: false
-    },
+    `${DEST}/package.json`,
+    { ...packageJSON, main: "./index.js", private: false },
     { spaces: 2 }
   );
+
+  // Copy the license and the readme files
+  await fs.copy(`${SRC}/LICENSE`, `${DEST}/LICENSE`);
+  await fs.copy(`${SRC}/README.md`, `${DEST}/README.md`);
 }
 
 run();

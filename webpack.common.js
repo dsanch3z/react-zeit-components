@@ -5,8 +5,12 @@ module.exports = {
   entry: "./src/index.ts",
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "index.js"
+    path: path.resolve(__dirname, "./dist"),
+    filename: "index.js",
+    library: "react-zeit-components",
+    libraryTarget: "umd",
+    publicPath: "/dist/",
+    umdNamedDefine: true
   },
 
   resolve: {
@@ -37,16 +41,18 @@ module.exports = {
   // This is important because it allows us to avoid bundling all of our
   // dependencies, which allows browsers to cache those libraries between builds.
   externals: {
-    // String
+    // Don't bundle react or react-dom
     react: {
-      root: "React",
       commonjs: "react",
-      amd: "react"
+      commonjs2: "react",
+      amd: "React",
+      root: "React"
     },
     "react-dom": {
-      root: "ReactDOM",
       commonjs: "react-dom",
-      amd: "react-dom"
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM"
     }
   }
 };

@@ -7,4 +7,4 @@ export { default as Note } from "./note";
 export { default as RaisedContainer } from "./raised-container";
 export { default as ShowMore } from "./show-more";
 export * from "./table";
-export { default as Toast } from "./toast";
+// export { default as Toast } from "./toast";
