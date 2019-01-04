@@ -1,0 +1,8 @@
+{
+  "short_name": "react-zeit-components2",
+  "name": "react-zeit-components2",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
