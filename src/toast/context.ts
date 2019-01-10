@@ -1,13 +1,16 @@
-import * as React from "react";
+import { Context, createContext, ReactElement } from "react";
+import { IToastContainerButtonProps } from "./toast-container";
 
-interface IToastContext {
-  portal: HTMLElement;
-  show: () => any;
-  visible: boolean;
+export interface IToastContext {
+  collapsed: boolean;
+  toasts: Array<ReactElement<any>>;
+  show: (message: string, buttonProps?: IToastContainerButtonProps) => any;
 }
 
-export default React.createContext<IToastContext>({
-  portal: null,
-  show: () => null,
-  visible: false,
+const context: Context<IToastContext> = createContext<IToastContext>({
+  collapsed: true,
+  toasts: [],
+  show: () => null
 });
+
+export default context;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export interface IInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

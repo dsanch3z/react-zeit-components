@@ -1,38 +1,6 @@
 import React from "react";
-
 import { storiesOf } from "@storybook/react";
-
-import "./button";
-import "./input";
-import "./show-more";
-import "./table";
-import "./toast";
-
-import RaisedContainer from "../src/raised-container";
-import Checkbox from "../src/checkbox";
-import Note from "../src/note";
-
-storiesOf("Checkbox", module)
-  .add("Checkbox", () => (
-    <RaisedContainer>
-      <div>
-        <Checkbox />
-      </div>
-      <div>
-        <Checkbox checked />
-      </div>
-    </RaisedContainer>
-  ))
-  .add("Disabled", () => (
-    <RaisedContainer>
-      <div>
-        <Checkbox disabled />
-      </div>
-      <div>
-        <Checkbox checked disabled />
-      </div>
-    </RaisedContainer>
-  ));
+import { Note, RaisedContainer } from "react-zeit-components";
 
 storiesOf("Note", module)
   .add("Note", () => (

@@ -1,4 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import * as React from "react";
+import { Global, css } from "@emotion/core";
+
+import theme from "./index";
 
 const fonts = [
   "-apple-system",
@@ -11,10 +14,10 @@ const fonts = [
   "Fira Sans",
   "Droid Sans",
   "Helvetica Neue",
-  "sans-serif",
+  "sans-serif"
 ];
 
-export default createGlobalStyle`
+const styles = css`
   body {
     font-family: ${fonts.join(",")};
     box-sizing: border-box;
@@ -26,8 +29,14 @@ export default createGlobalStyle`
     background: #fafafa;
   }
 
+  *,
+  ::before,
+  ::after {
+    box-sizing: inherit;
+  }
+
   ::selection {
-    background-color: #79FFE1;
+    background-color: #79ffe1;
     color: #000;
   }
 
@@ -62,7 +71,11 @@ export default createGlobalStyle`
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
-    color: rgb(153, 153, 153);
+    color: ${theme.accent[2]};
     text-transform: uppercase;
   }
 `;
+
+const GlobalStyles = () => <Global styles={styles} />;
+
+export default GlobalStyles;

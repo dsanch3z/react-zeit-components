@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const Span = styled.span`
   display: inline-block;
@@ -15,17 +15,15 @@ const Img = styled.img`
   height: 100%;
 `;
 
-export default function Avatar(
-  props: React.ImgHTMLAttributes<HTMLImageElement>,
-) {
-  return (
-    <Span style={{ width: props.width, height: props.height }}>
-      <Img {...props} />
-    </Span>
-  );
-}
+const Avatar: React.SFC<React.ImgHTMLAttributes<HTMLImageElement>> = props => (
+  <Span style={{ width: props.width, height: props.height }}>
+    <Img {...props} />
+  </Span>
+);
 
 Avatar.defaultProps = {
   width: 30,
-  height: 30,
+  height: 30
 };
+
+export default Avatar;

@@ -1,0 +1,27 @@
+{
+  "name": "react-zeit-components-example",
+  "homepage": "https://cube5.github.io/react-zeit-components",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-zeit-components": "link:.."
+  },
+  "scripts": {
+    "start": "yarn storybook",
+    "build": "yarn build-storybook",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "^4.1.4",
+    "@storybook/addon-links": "^4.1.4",
+    "@storybook/addons": "^4.1.4",
+    "@storybook/react": "^4.1.4",
+    "babel-loader": "^8.0.5"
+  }
+}

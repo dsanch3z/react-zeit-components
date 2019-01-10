@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import CheckboxSvg from "./checkbox";
 import CheckboxCheckedSvg from "./checkbox-checked";
@@ -39,14 +39,14 @@ const CheckMarkStyled = styled.span`
 `;
 
 export default function Checkbox(
-  props: React.InputHTMLAttributes<HTMLInputElement>,
+  props: React.InputHTMLAttributes<HTMLInputElement>
 ) {
   const { checked, disabled } = props;
   const wrapperClassName = classNames({ checked, disabled });
   return (
     <label>
       <Wrapper className={wrapperClassName}>
-        <Input {...props} />
+        <Input {...props} type="checkbox" />
         <CheckMarkStyled>
           {checked ? <CheckboxCheckedSvg /> : <CheckboxSvg />}
         </CheckMarkStyled>

@@ -1,9 +1,0 @@
-{
-  "extends": ["tslint:recommended", "tslint-react"],
-  "rules": {
-    "jsx-no-multiline-js": false,
-    "max-classes-per-file": false,
-    "ordered-imports": false,
-    "object-literal-sort-keys": false
-  }
-}

@@ -2,8 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
-import RaisedContainer from "../../src/raised-container";
-import ShowMore from "../../src/show-more";
+import { RaisedContainer, ShowMore } from "react-zeit-components";
 
 storiesOf("ShowMore", module).add("ShowMore", () => (
   <RaisedContainer>

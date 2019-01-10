@@ -1,9 +1,16 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 
-import RaisedContainer from "../../src/raised-container";
-import Avatar from "../../src/avatar";
-import { Table, THead, TH, TBody, TR, TD } from "../../src/table";
+import {
+  Avatar,
+  RaisedContainer,
+  Table,
+  THead,
+  TH,
+  TBody,
+  TR,
+  TD
+} from "react-zeit-components";
 
 storiesOf("Table", module).add("Table", () => (
   <RaisedContainer>

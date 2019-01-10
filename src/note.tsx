@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export interface INoteProps {
   label: false | string;
@@ -48,7 +48,7 @@ const Div = styled.div`
   }
 `;
 
-export default function Note(props: INoteProps) {
+const Note: React.SFC<INoteProps> = props => {
   const { label, type, children } = props;
   return (
     <Div className={type}>
@@ -56,8 +56,10 @@ export default function Note(props: INoteProps) {
       {children}
     </Div>
   );
-}
+};
 
 Note.defaultProps = {
-  type: "note",
+  type: "note"
 };
+
+export default Note;
