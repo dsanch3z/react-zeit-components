@@ -19,7 +19,6 @@ const ToastArea = styled.div`
   max-width: 420px;
   z-index: 2000;
   transition: transform 0.4s ease 0s;
-  border: 1px solid red;
 
   & .visible:nth-last-child(1) {
     transform: translate3d(0px, 0px, 0px) scale(1);
@@ -29,6 +28,11 @@ const ToastArea = styled.div`
   }
   & .visible:nth-last-child(3) {
     transform: translate3d(0px, -30px, -2px) scale(0.9);
+  }
+
+  & .visible:nth-last-child(n + 4) {
+    opacity: 0;
+    pointer-events: none;
   }
 
   &:hover {
@@ -45,7 +49,7 @@ const ToastArea = styled.div`
   }
 `;
 
-class ToastProvider extends React.Component<void, IToastProviderState> {
+class ToastProvider extends React.Component<{}, IToastProviderState> {
   public toastsVisibleTimeoutId: any = null;
 
   public state = {
@@ -85,7 +89,11 @@ class ToastProvider extends React.Component<void, IToastProviderState> {
     if (!portal) {
       const div = this.createPortalContainer();
       ReactDOM.render(
-        <ToastArea id="react-zeit-components-toast-area" />,
+        <ToastArea
+          id="react-zeit-components-toast-area"
+          onMouseEnter={() => console.log("mouseenter")}
+          onMouseLeave={() => console.log("mouseleave")}
+        />,
         div,
         () => this.setState({ portal: div })
       );

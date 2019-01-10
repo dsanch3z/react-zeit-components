@@ -1,4 +1,5 @@
 import * as React from "react";
+import { keyframes } from "@emotion/core";
 import styled from "@emotion/styled";
 import Button, { IButtonProps } from "../button";
 
@@ -10,16 +11,24 @@ export interface IToastContainerProps {
   buttonProps?: IToastContainerButtonProps;
 }
 
+const fade = keyframes`
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+`;
+
 const ToastContainerStyles = styled.div`
   width: 420px;
   height: 72px;
   position: absolute;
   bottom: 0px;
   right: 0px;
-  transition: all 0.4s ease 0s;
-  opacity: 1;
-  /* animation: show-jsx-1285904019 0.4s ease 0s 1 normal forwards running; */
+  transition: transform 0.4s ease 0s;
+  opacity: 0;
   transform: translate3d(0px, 100%, 0px) scale(1);
+  /* animation: ${fade} 0.4s ease 0s 1 normal forwards running; */
+  &.visible {
+    opacity: 1;
+  }
 `;
 
 const ToastStyles = styled.div`
@@ -50,15 +59,22 @@ export default class ToastContainer extends React.Component<
   IToastContainerProps
 > {
   public static defaultProps = {
-    buttoProps: null,
+    buttoProps: null
   };
+
+  public hideTimeoutId: any = null;
 
   public state = {
-    visible: false,
+    visible: false
   };
 
+  show = () => this.setState({ visible: true });
+
+  hide = () => this.setState({ visible: false });
+
   public componentDidMount() {
-    setTimeout(() => this.setState({ visible: true }), 10);
+    setTimeout(this.show, 10);
+    this.hideTimeoutId = setTimeout(this.hide, 4000);
   }
 
   public render() {

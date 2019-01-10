@@ -7,5 +7,6 @@ export { default as Note } from "./note";
 export { default as RaisedContainer } from "./raised-container";
 export { default as ShowMore } from "./show-more";
 export { Table, THead, TBody, TH, TR, TD } from "./table";
-export { ToastConsumer, ToastProvider } from "./toast";
-export { default as theme, GlobalStyles } from "./theme";
+// export { ToastConsumer, ToastProvider } from "./toast";
+export { default as theme } from "./theme";
+export { default as GlobalStyles } from "./theme/global-styles";
