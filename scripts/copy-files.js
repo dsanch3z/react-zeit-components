@@ -10,7 +10,13 @@ async function run() {
   await fs.createFile(`${DEST}/package.json`);
   await fs.writeJSON(
     `${DEST}/package.json`,
-    { ...packageJSON, main: "./index.js", private: false },
+    {
+      ...packageJSON,
+      private: false,
+      main: "index.js",
+      module: "index.es.js",
+      "jsnext:main": "index.es.js"
+    },
     { spaces: 2 }
   );
 

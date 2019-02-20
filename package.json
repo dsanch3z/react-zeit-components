@@ -1,6 +1,6 @@
 {
   "name": "react-zeit-components",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Zeit's design components to React",
   "author": "cube5",
   "license": "MIT",
@@ -17,8 +17,8 @@
     "test:watch": "react-scripts-ts test --env=jsdom",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
+    "prepare": "yarn build && node scripts/copy-files.js",
+    "predeploy": "cd example && yarn install && yarn prepare",
     "deploy": "gh-pages -d example/storybook-static"
   },
   "dependencies": {
