@@ -1,7 +1,11 @@
 import * as React from "react";
-import { Global, css } from "@emotion/core";
+import { Global, css, SerializedStyles } from "@emotion/core";
 
 import theme from "./index";
+
+interface IGlobalStylesProps {
+  overrides: string | SerializedStyles;
+}
 
 const fonts = [
   "-apple-system",
@@ -17,65 +21,80 @@ const fonts = [
   "sans-serif"
 ];
 
-const styles = css`
-  body {
-    font-family: ${fonts.join(",")};
-    box-sizing: border-box;
-    color: rgb(0, 0, 0);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    text-rendering: optimizelegibility;
-    background: #fafafa;
-  }
+const GlobalStyles = ({ overrides }: IGlobalStylesProps) => (
+  <Global
+    styles={css`
+      :root {
+        --primary: #000;
+        --secondary: #fff;
+        --highlight: #007aff;
+        --danger: #eb5757;
+        --warning: rgb(255, 0, 31);
+        --alert: rgb(244, 129, 33);
+        --selection-bg: #79ffe1;
+        --selection-color: #000;
+      }
 
-  *,
-  ::before,
-  ::after {
-    box-sizing: inherit;
-  }
+      body {
+        font-family: ${fonts.join(",")};
+        box-sizing: border-box;
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        text-rendering: optimizelegibility;
+        background: #fafafa;
+      }
 
-  ::selection {
-    background-color: #79ffe1;
-    color: #000;
-  }
+      *,
+      ::before,
+      ::after {
+        box-sizing: inherit;
+      }
 
-  p {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-  }
+      ::selection {
+        background-color: var(--selection-bg);
+        color: var(--selection-color);
+      }
 
-  h1 {
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 42px;
-  }
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+      }
 
-  h2 {
-    font-weight: 400;
-    font-size: 24px;
-  }
+      h1 {
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 42px;
+      }
 
-  h3 {
-    font-weight: bold;
-    font-size: 18px;
-  }
+      h2 {
+        font-weight: 400;
+        font-size: 24px;
+      }
 
-  h4 {
-    font-weight: bold;
-    font-size: 16px;
-  }
+      h3 {
+        font-weight: bold;
+        font-size: 18px;
+      }
 
-  .subheading {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: ${theme.accent[2]};
-    text-transform: uppercase;
-  }
-`;
+      h4 {
+        font-weight: bold;
+        font-size: 16px;
+      }
 
-const GlobalStyles = () => <Global styles={styles} />;
+      .subheading {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: ${theme.accent[2]};
+        text-transform: uppercase;
+      }
+
+      ${overrides}
+    `}
+  />
+);
 
 export default GlobalStyles;

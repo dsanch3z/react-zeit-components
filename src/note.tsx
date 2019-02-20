@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "@emotion/styled";
 
 export interface INoteProps {
-  label: false | string;
+  label?: false | string;
   type: "note" | "hint" | "alert" | "warning";
   children: any;
 }
@@ -21,29 +21,29 @@ const Div = styled.div`
 
   & a {
     text-decoration: none;
-    color: rgb(6, 125, 247);
+    color: var(--highlight);
     font-size: inherit;
     cursor: pointer;
   }
 
   &.hint {
-    border-color: rgb(6, 125, 247);
+    border-color: var(--highlight);
     & b {
-      color: rgb(6, 125, 247);
+      color: var(--highlight);
     }
   }
 
   &.alert {
-    border-color: rgb(244, 129, 33);
+    border-color: var(--alert);
     & b {
-      color: rgb(244, 129, 33);
+      color: var(--alert);
     }
   }
 
   &.warning {
-    border-color: rgb(255, 0, 31);
+    border-color: var(--warning);
     & b {
-      color: rgb(255, 0, 31);
+      color: var(--warning);
     }
   }
 `;

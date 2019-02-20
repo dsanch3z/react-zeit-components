@@ -65,8 +65,18 @@ const StyledButton = styled.button`
     font-size: 12px;
   }
 
+  &.primary {
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: #fff;
+    &:hover {
+      color: var(--primary);
+      background: #fff;
+    }
+  }
+
   &.secondary {
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid #eaeaea;
     color: #666;
     &:hover {
@@ -78,9 +88,9 @@ const StyledButton = styled.button`
 
   &.disabled {
     cursor: not-allowed;
-    color: rgb(204, 204, 204) !important;
-    background: rgb(250, 250, 250) !important;
-    border-color: rgb(234, 234, 234) !important;
+    color: rgb(204, 204, 204);
+    background: rgb(250, 250, 250);
+    border-color: rgb(234, 234, 234);
   }
 
   &.loading {
@@ -98,21 +108,21 @@ const StyledButton = styled.button`
   }
 
   &.danger {
-    border-color: #eb5757;
-    background-color: #eb5757;
+    border-color: var(--danger);
+    background-color: var(--danger);
     color: #fff;
     &:hover {
-      color: #eb5757;
+      color: var(--danger);
       background: #fff;
     }
   }
 
   &.highlight {
-    border-color: #007aff;
-    background-color: #007aff;
+    border-color: var(--highlight);
+    background-color: var(--highlight);
     color: #fff;
     &:hover {
-      color: #007aff;
+      color: var(--highlight);
       background: #fff;
     }
   }
