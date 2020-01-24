@@ -1,10 +1,6 @@
 import React, { Fragment } from "react";
-import { configure, addDecorator } from "@storybook/react";
+import { addDecorator } from "@storybook/react";
 import { GlobalStyles } from "react-zeit-components";
-
-function loadStories() {
-  require("../src/stories/index.stories");
-}
 
 addDecorator(story => (
   <Fragment>
@@ -29,5 +25,3 @@ addDecorator(story => (
     </div>
   </Fragment>
 ));
-
-configure(loadStories, module);

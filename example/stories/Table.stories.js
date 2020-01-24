@@ -1,6 +1,4 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
-
 import {
   Avatar,
   RaisedContainer,
@@ -12,7 +10,11 @@ import {
   TD
 } from "react-zeit-components";
 
-storiesOf("Table", module).add("Table", () => (
+export default {
+  title: "Table"
+};
+
+export const Regular = () => (
   <RaisedContainer>
     <Table>
       <THead>
@@ -40,4 +42,4 @@ storiesOf("Table", module).add("Table", () => (
       </TBody>
     </Table>
   </RaisedContainer>
-));
+);
