@@ -5,7 +5,10 @@ import { keyframes } from "@emotion/core";
 import ButtonAnimation from "./button-animation";
 
 export interface IButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   color?: "primary" | "secondary" | "abort" | "danger" | "highlight";
   size?: "md" | "sm";
   loading?: boolean;
@@ -21,14 +24,12 @@ export interface IButtonState {
 const StyledButton = styled.button`
   appearance: none;
   align-items: center;
-  color: #fff;
-  background: #000;
+  border: 1px solid var(--primary);
   display: inline-flex;
   width: 200px;
   height: 40px;
   padding: 0 25px;
   outline: none;
-  border: 1px solid #000;
   font-size: 12px;
   justify-content: center;
   text-transform: uppercase;
@@ -44,10 +45,11 @@ const StyledButton = styled.button`
   text-decoration: none;
   line-height: 0;
 
+  color: #fff;
+  background-color: var(--primary);
   &:hover {
-    border: 1px solid #000;
+    color: var(--primary);
     background: #fff;
-    color: #000;
   }
 
   & b {
@@ -266,6 +268,7 @@ export default class Button extends React.Component<
         <StyledButton
           {...this.props}
           ref={this.onElement}
+          aria-disabled={disabled}
           className={buttonClassName}
           onClick={this.onClick}
         >
@@ -274,7 +277,6 @@ export default class Button extends React.Component<
           </b>
           {animationStartAt ? (
             <ButtonAnimation
-              key={animationStartAt}
               x={animationX}
               y={animationY}
               onComplete={this.onAnimationComplete}

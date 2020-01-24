@@ -18,9 +18,7 @@ export default {
     },
     {
       file: pkg.module,
-      format: "es",
-      exports: "named",
-      sourcemap: true
+      format: "esm"
     }
   ],
   plugins: [
