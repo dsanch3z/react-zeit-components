@@ -1,10 +1,12 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import { Button } from "react-zeit-components";
 
 export default {
   title: "Button",
-  component: Button
+  component: Button,
+  decorators: [withKnobs]
 };
 
 export const Emoji = () => (
@@ -17,10 +19,10 @@ export const Emoji = () => (
 
 export const Primary = () => (
   <div>
-    <Button onClick={action("clicked")}>Action</Button>
+    <Button onClick={action("clicked")}>{text("Button text", "Action")}</Button>
     <br />
     <Button size="sm" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
   </div>
 );
@@ -28,11 +30,11 @@ export const Primary = () => (
 export const Secondary = () => (
   <div>
     <Button color="secondary" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
     <br />
     <Button color="secondary" size="sm" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
   </div>
 );
@@ -40,11 +42,11 @@ export const Secondary = () => (
 export const Disabled = () => (
   <div>
     <Button onClick={action("clicked")} disabled>
-      Action
+      {text("Button text", "Action")}
     </Button>
     <br />
     <Button size="sm" onClick={action("clicked")} disabled>
-      Action
+      {text("Button text", "Action")}
     </Button>
   </div>
 );
@@ -64,11 +66,11 @@ export const Loading = () => (
 export const Abort = () => (
   <div>
     <Button color="abort" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
     <br />
     <Button color="abort" size="sm" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
   </div>
 );
@@ -76,11 +78,11 @@ export const Abort = () => (
 export const Danger = () => (
   <div>
     <Button color="danger" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
     <br />
     <Button color="danger" size="sm" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
   </div>
 );
@@ -88,11 +90,11 @@ export const Danger = () => (
 export const Highlight = () => (
   <div>
     <Button color="highlight" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
     <br />
     <Button color="highlight" size="sm" onClick={action("clicked")}>
-      Action
+      {text("Button text", "Action")}
     </Button>
   </div>
 );
@@ -100,7 +102,7 @@ export const Highlight = () => (
 export const Raised = () => (
   <div>
     <Button onClick={action("clicked")} raised>
-      Action
+      {text("Button text", "Action")}
     </Button>
   </div>
 );

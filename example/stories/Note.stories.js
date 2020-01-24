@@ -1,18 +1,22 @@
 import React from "react";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import { Note, RaisedContainer } from "react-zeit-components";
 
 export default {
   title: "Note",
-  component: Note
+  component: Note,
+  decorators: [withKnobs]
 };
 
 export const Regular = () => (
   <RaisedContainer>
     <div>
       <Note>
-        This is a note that details something important.
+        {text("Note text", "This is a note that details something important.")}
         <br />
-        <a href="#">A link to helpful information.</a>
+        <a href="#">
+          {text("Note link text", "A link to helpful information.")}
+        </a>
       </Note>
     </div>
   </RaisedContainer>
@@ -21,7 +25,9 @@ export const Regular = () => (
 export const Hint = () => (
   <RaisedContainer>
     <div>
-      <Note type="hint">This is a hint for something that is possible.</Note>
+      <Note type="hint">
+        {text("Note text", "This is a hint for something that is possible.")}
+      </Note>
     </div>
   </RaisedContainer>
 );
@@ -30,7 +36,10 @@ export const Alert = () => (
   <RaisedContainer>
     <div>
       <Note type="alert">
-        This is an alert for something to take action for.
+        {text(
+          "Note text",
+          "This is an alert for something to take action for."
+        )}
       </Note>
     </div>
   </RaisedContainer>
@@ -40,7 +49,7 @@ export const Warning = () => (
   <RaisedContainer>
     <div>
       <Note type="warning">
-        This is a warning for something very important.
+        {text("Note text", "This is a warning for something very important.")}
       </Note>
     </div>
   </RaisedContainer>
@@ -49,7 +58,7 @@ export const Warning = () => (
 export const HiddenLabel = () => (
   <RaisedContainer>
     <div>
-      <Note label={false}>Just a quick note!</Note>
+      <Note label={false}>{text("Note text", "Just a quick note!")}</Note>
     </div>
   </RaisedContainer>
 );
@@ -57,12 +66,12 @@ export const HiddenLabel = () => (
 export const CustomLabel = () => (
   <RaisedContainer>
     <div>
-      <Note label="CUSTOM LABEL">
-        This is a note that details something important.
+      <Note label={text("Note label text", "CUSTOM LABEL")}>
+        {text("Note text", "This is a note that details something important.")}
       </Note>
       <br />
-      <Note label="ANOTHER CUSTOM LABEL" type="warning">
-        This is a note that details something important.
+      <Note label={text("Note label text", "CUSTOM LABEL")} type="warning">
+        {text("Note text", "This is a note that details something important.")}
       </Note>
     </div>
   </RaisedContainer>

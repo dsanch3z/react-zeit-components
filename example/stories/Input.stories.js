@@ -1,31 +1,36 @@
 import React from "react";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import { Input, RaisedContainer } from "react-zeit-components";
 
 export default {
   title: "Input",
-  component: Input
+  component: Input,
+  decorators: [withKnobs]
 };
 
 export const Regular = () => (
   <RaisedContainer>
-    <Input placeholder="Hey Dude" />
+    <Input placeholder={text("Placeholder", "Some placeholder")} />
   </RaisedContainer>
 );
 
 export const Disabled = () => (
   <RaisedContainer>
-    <Input placeholder="Hey Dude" disabled />
+    <Input placeholder={text("Placeholder", "Some placeholder")} disabled />
   </RaisedContainer>
 );
 
 export const Error = () => (
   <RaisedContainer>
-    <Input placeholder="Hey Dude" errored />
+    <Input placeholder={text("Placeholder", "Some placeholder")} errored />
   </RaisedContainer>
 );
 
 export const Labeled = () => (
   <RaisedContainer>
-    <Input placeholder="Hey Dude" label="zeit.co/teams" />
+    <Input
+      placeholder={text("Placeholder", "Some placeholder")}
+      label={text("Label", "zeit.co/teams")}
+    />
   </RaisedContainer>
 );
